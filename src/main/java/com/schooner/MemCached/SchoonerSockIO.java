@@ -58,7 +58,7 @@ public abstract class SchoonerSockIO extends SockIOPool.SockIO {
 	private int bufferSize = 1024 * 1025;
 
 	// the datagram sent from memcached mustn't beyond 1400 bytes.
-	public ByteBuffer readBuf = ByteBuffer.allocateDirect(8 * 1024);
+	public ByteBuffer readBuf = ByteBuffer.allocate(8 * 1024);
 	public ByteBuffer writeBuf;
 
 	public abstract short preWrite();
@@ -74,7 +74,7 @@ public abstract class SchoonerSockIO extends SockIOPool.SockIO {
 
 	public void setBufferSize(int bufferSize) {
 		this.bufferSize = bufferSize;
-		writeBuf = ByteBuffer.allocateDirect(this.bufferSize);
+		writeBuf = ByteBuffer.allocate(this.bufferSize);
 	}
 
 	public int getBufferSize() {

@@ -1209,7 +1209,7 @@ public class BinaryClient extends MemCachedClient {
 					size += buf.length;
 				}
 				size = size + (bufList.size() + 1) * 24;
-				outgoing = ByteBuffer.allocateDirect(size);
+				outgoing = ByteBuffer.allocate(size);
 				outgoing.clear();
 				for (String key : keys) {
 					byte[] buf = key.getBytes();

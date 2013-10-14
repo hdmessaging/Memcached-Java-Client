@@ -1227,7 +1227,7 @@ public class SchoonerSockIOPool {
 			channel.socket().setSoTimeout(timeout);
 			selector = Selector.open();
 			((DatagramChannel) channel).register(selector, SelectionKey.OP_READ);
-			writeBuf = ByteBuffer.allocateDirect(bufferSize);
+			writeBuf = ByteBuffer.allocate(bufferSize);
 		}
 
 		@Override
@@ -1445,7 +1445,7 @@ public class SchoonerSockIOPool {
 			// get socket: default is to use non-blocking connect
 			sock = getSocket(ip[0], Integer.parseInt(ip[1]), connectTimeout);
 
-			writeBuf = ByteBuffer.allocateDirect(bufferSize);
+			writeBuf = ByteBuffer.allocate(bufferSize);
 
 			if (timeout >= 0)
 				this.sock.setSoTimeout(timeout);
